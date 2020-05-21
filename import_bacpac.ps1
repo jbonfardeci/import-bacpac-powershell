@@ -105,13 +105,13 @@ function set_identity_off($tablename){
 function disable_db_constraints(){
     write-host "Disabling database PK/FK constraints...";
     # https://gist.github.com/metaskills/893599
-    return execute_sql "EXEC App.usp_MSforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT all'";
+    return execute_sql "EXEC $schema.usp_MSforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT all'";
 }
 
 function enable_db_constraints(){
     write-host "Re-enabling database PK/FK constraints...";
     # https://gist.github.com/metaskills/893599
-    return execute_sql "EXEC App.usp_MSforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all'";
+    return execute_sql "EXEC $schema.usp_MSforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all'";
 }
 
 function get_bcp_error($messages){
@@ -155,6 +155,7 @@ function unzip_file($file, $path){
 
 $max_packet_size = 65535;
 $max_batch_size = 100000;
+$schema = "dbo";
 
 $conf = @{
 

@@ -1,6 +1,11 @@
 # Import a SQL Server BACPAC Export File to an EXISTING Database Schema
 Normally, it's only possible to import a `.bacpac` into a new empty database.
 
+## Prerequisite Stored Procedures
+Azure SQL Database lacks two key stored procedures normally found in the master table. There is no master table in an Azure SQL database.<br />
+Be sure to change the schemas in the procedure SQL scripts and the import-bacpac.ps1 PowerShell script (`$schema = "dbo"`). As they are, the default schema will be 'dbo'.<br />
+Run the two SQL scripts in ./procedures to create `usp_MSforeach_worker` and `usp_MSforeachtable`.
+
 ### Usage:
 
 ```{PowerShell}
