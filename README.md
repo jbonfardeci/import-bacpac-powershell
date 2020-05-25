@@ -6,6 +6,8 @@ Azure SQL Database lacks two key stored procedures normally found in the master 
 Be sure to change the schemas in the procedure SQL scripts and the import-bacpac.ps1 PowerShell script (`$schema = "dbo"`). As they are, the default schema will be 'dbo'.<br />
 Run the two SQL scripts in ./procedures to create `usp_MSforeach_worker` and `usp_MSforeachtable`.
 
+Thanks to https://gist.github.com/metaskills/893599 for these missing procedures in Azure SQL Server.
+
 ### Usage:
 
 ```{PowerShell}

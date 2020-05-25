@@ -1,3 +1,4 @@
+-- Source: https://gist.github.com/metaskills/893599
 create proc usp_MSforeach_worker
 @command1 nvarchar(2000), 
 @replacechar nchar(1) = N'?', 
