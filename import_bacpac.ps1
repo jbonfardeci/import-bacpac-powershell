@@ -290,9 +290,11 @@ $sqlcmd_parms = $sqlcmd_parms + $sqlcmd_login;
 $has_error = $false;
 $ct = 0;
 $tables = @();
-$rx = $conf.exclude_regex -replace "\^", "";
-if(-not $rx.StartsWith("^Data/")){
-    $rx = "^Data/" + $rx;
+if($conf.exclude_regex.Length -gt 0){
+    $rx = $conf.exclude_regex -replace "\^", "";
+    if(-not $rx.StartsWith("^Data/")){
+        $rx = "^Data/" + $rx;
+    }
 }
 $tmp = "";
 
