@@ -247,11 +247,11 @@ $exclude_tables = @();
 $paths = $null;
 $bacpac_file = Get-ChildItem -Path $conf.bacpac_file;
 $dir = $bacpac_file.Directory.FullName;
-$bcp_import_log = "$dir\bcp_import_log.csv";
+$bcp_import_log = "$dir/bcp_import_log.csv";
 $bcp_csv_content = "";
 
 # Location of the unzipped bacpac folder.
-$root = "$dir\bacpac_temp";
+$root = "$dir/bacpac_temp";
 create_folder $root;
 
 # Setup import CSV log.
@@ -341,7 +341,7 @@ for($i=0; $i -lt $files.Length; $i++) {
     }
 
     # Extract bcp to temp file for BCP import.
-    $temp_path = "$root\$filename";
+    $temp_path = "$root/$filename";
     unzip_file $file $temp_path;
 
     # Execute Bulk Copy Program utility (bcp).
